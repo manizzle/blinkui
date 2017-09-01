@@ -1,0 +1,17 @@
+We want 2 things from Blink right now (This might change)
+
+List of all videos
+Health of all cameras
+
+This data will be stored in an sqlite db as follows:
+
+Table "videos":
+id = unique video id
+link = video link in S3
+timestamp = unix timestamp for when the video was created
+
+Table "cameras":
+id = unique camera id
+name = camera name
+battery = integer value of the camera
+
