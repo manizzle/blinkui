@@ -1,8 +1,4 @@
 import blinkpy, pdb
-UNAME="manizzle.msf@gmail.com"
-PASS="786moula"
-#UNAME="murt52@gmail.com"
-#PASS="masjidsec110"
 blink = blinkpy.Blink(username=UNAME, password=PASS)
 blink.setup_system()
 
