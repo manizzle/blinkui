@@ -2,6 +2,7 @@ from flask import Flask, request, session, g, redirect, url_for, \
 	abort, render_template, flash, jsonify
 import sqlite3
 import datetime
+import configparser
 
 import blinkpy
 
@@ -19,7 +20,6 @@ blink = blinkpy.Blink(username=BLINK_USERNAME, password=BLINK_PASSWORD)
 blink.setup_system()
 
 for name, camera in blink.cameras.items():
-    pdb.set_trace()
     print(name)                  # Name of the camera
     print(camera.id)             # Integer id of the camera (assigned by Blink)
     print(camera.armed)          # Whether the device is armed/disarmed (ie. detecting motion)
