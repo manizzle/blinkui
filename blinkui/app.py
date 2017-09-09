@@ -32,9 +32,8 @@ for name, camera in blink.cameras.items():
     print(camera.notifications)  # Number of unread notifications (ie. motion alerts that haven't been viewed)
     print(camera.motion)         # Dictionary containing values for keys ['video', 'image', 'time']
     print(camera.image_link)     #
-    #print(camera.video_link)     # 
-    							 # which corresponds to last motion recorded, thumbnail of last motion, and timestamp of last motion
-
+    print(camera.stream_link)
+    print(camera.get_stream())
 
 app = Flask(__name__)
 
