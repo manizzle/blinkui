@@ -9,7 +9,13 @@ import blinkpy
 DATABASE = 'blinkui.db'
 DEBUG = True
 
-blink = blinkpy.Blink(username=UNAME, password=PASS)
+conf = configparser.ConfigParser()
+conf.read('blinkui.conf')
+
+BLINK_USERNAME = conf.get('blink', 'username')
+BLINK_PASSWORD = conf.get('blink', 'password')
+
+blink = blinkpy.Blink(username=BLINK_USERNAME, password=BLINK_PASSWORD)
 blink.setup_system()
 
 for name, camera in blink.cameras.items():
@@ -25,8 +31,8 @@ for name, camera in blink.cameras.items():
     print(camera.notifications)  # Number of unread notifications (ie. motion alerts that haven't been viewed)
     print(camera.motion)         # Dictionary containing values for keys ['video', 'image', 'time']
     print(camera.image_link)     #
-    print(camera.video_link)     #
-                                 #   which corresponds to last motion recorded, thumbnail of last motion, and timestamp of last motion
+    print(camera.video_link)     # 
+    							 # which corresponds to last motion recorded, thumbnail of last motion, and timestamp of last motion
 
 
 app = Flask(__name__)
